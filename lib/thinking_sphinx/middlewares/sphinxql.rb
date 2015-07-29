@@ -61,7 +61,7 @@ class ThinkingSphinx::Middlewares::SphinxQL <
     end
 
     def class_condition_required?
-      classes.any? && !indices_match_classes?
+      (options[:class_condition].nil? || options[:class_condition]) && classes.any? && !indices_match_classes?
     end
 
     def constantize_inheritance_column(klass)
